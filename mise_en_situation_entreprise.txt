@@ -1,0 +1,41 @@
+Mission 1.1  Profil général
+ -nbr total client : 
+   requette sql = select count(*) as nombre_client from clients 
+      
+
+   interpretation = total de 10 clients
+  
+-âge moyen de nos clients:
+   
+   requette sql =  select avg(age) from clients 
+      
+   interpretation = age moyen de 34.4 ans 
+
+
+-client standard vs premium :
+     requette sql = select statut, count(*) as nombre
+                    from clients
+                    group by statut
+     interpretation = client premium = 5
+                      client standard = 5
+ 
+Mission 1.2 - Segmentation géographique 
+-ville avec le plus de clients : 
+     *vue generale du nombre de clients par ville :
+          requette sql = select ville , count(*) as nombre
+                         from clients 
+                         group by ville;
+      interpretation = Paris = 3
+                       Lyon = 3
+                       Marseille = 2
+                       Nice = 2
+     conclusion (ville avec le plus de client) = 
+        requette sql =  select ville , count(*) as nombre_clients
+                        from clients
+                        group by ville 
+                        having ville = 'Paris' or ville = 'Lyon';
+        interpretation = le ville avec le plus de client est Paris et Lyon (nbr = 3)
+
+
+
+
